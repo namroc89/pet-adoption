@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{pet.name}}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1 class="display-2 text-center">{{pet.name}}</h1>
+    <div class="row justify-content-center">
+        <a href="/pet/{{pet.id}}/edit" class="btn btn-success m-1">Edit</a>
+        <a href="/" class="btn btn-info m-1">Go back</a>
+        <form action="/pet/{{pet.id}}/remove" method="POST">
+            <button class="btn btn-danger mt-1">Remove</button>
+        </form>
+    </div>
+    <p class="text-center">({{pet.species}})</p>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="{{pet.photo_url}}" alt="" class="img-fluid img-thumbnail">
+
+        </div>
+        <div class="col-md-6">
+
+            <p>AGE: {{pet.age}}</p>
+
+
+            <p>Notes: {{pet.notes}}</p>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

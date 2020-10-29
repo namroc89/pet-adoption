@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Pet Adoption{% endblock %}
+
+{%block content%}
+<div class="container">
+    <div>
+        <h2>Add new pet <a href="/add" class="btn btn-success btn-sm">Add</a></h2>
+    </div>
+    <div class="row">
+        {% for pet in pets %}
+        <div class="col-sm-3">
+            <h4>{{pet.name}}</h4>
+            <img class="img-fluid" src="{{pet.photo_url}}" alt="">
+            <a href="/pet/{{pet.id}}" class="btn btn-primary">View Details</a>
+            {% if pet.available %}
+            <span class="badge badge-success">Available</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock %}
